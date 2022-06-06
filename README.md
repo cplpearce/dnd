@@ -1,5 +1,13 @@
 # dnd
 
+
+## Setup
+```python
+python3 -m pip install -r requirements.txt
+
+python3 main.py
+```
+
 Max &amp; Clint's D&amp;D Game
 This repo will be for a choose your own adenture game to help us learn python!
 

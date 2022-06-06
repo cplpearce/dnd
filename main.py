@@ -11,6 +11,7 @@ from adventurelib import when, start
 def inventory():
     """Command to show the inventory"""
     print("You check your inventory.")
+    # print user inventory
 
 
 if __name__ == "__main__":
