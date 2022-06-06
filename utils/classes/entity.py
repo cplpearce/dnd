@@ -14,6 +14,7 @@ class Entity:
         self.attack_bonus = attack_bonus
         self.damage_die = damage_die
         self.damage_bonus = damage_bonus
+        self.inventory = []
 
     def attack(self, target):
         """Attack another entity and subtract damage from target's hitpoints"""
@@ -26,7 +27,8 @@ class Entity:
         if hit_result > target.ac:
 
             # now we calc the damage
-            damage_result = random.randint(1, self.damage_die) + self.damage_bonus
+            damage_result = random.randint(
+                1, self.damage_die) + self.damage_bonus
 
             print(f"And hits! For {damage_result} damage!")
 
@@ -48,9 +50,24 @@ class Entity:
         return self.hitpoints
 
     # this @setter property decorator means we can SET its hp using this alias
+
     @hp.setter
     def hp(self, damage):
         self.hitpoints += damage
+
+    @property
+    def inventory(self):
+        """Get the entity hitpoints"""
+        return self.inventory
+
+    @inventory.setter
+    def add_to_inventory(self, item):
+        self.inventory.append(item)
+        return f"Added {item.name} to inventory"
+
+    @inventory.setter
+    def remove_from_inventory(self, item):
+        self.inventory.remove(item.uid)
 
     def __str__(self):
         return f"{self.name} has {self.hitpoints} hitpoints"
